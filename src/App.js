@@ -17,6 +17,8 @@ function App() {
           <img alt="" src ={beach}></img>
         </div>
       </div>
+      <button>Prev</button>
+      <button>Next</button>
     </div>
   );
 }
