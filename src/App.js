@@ -17,8 +17,10 @@ function App() {
           <img alt="" src ={beach}></img>
         </div>
       </div>
+      <div className="button-container">
       <button>Prev</button>
       <button>Next</button>
+      </div>
     </div>
   );
 }
