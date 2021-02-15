@@ -9,8 +9,6 @@ import { useState, useEffect } from 'react';
 function App() {
   const [counter, setCounter] = useState(1);
   const [transformAmount, setTransformAmount] = useState(-1200);
-  // const carouselSlide = document.querySelector('.carousel-slide');
-  // const carouselImages = document.querySelectorAll('.carousel-slide img');
   useEffect(()=> {
     setTransformAmount(state => state * counter);
   }, [counter]);
@@ -18,10 +16,8 @@ function App() {
     transform: `translateX(${transformAmount}px)`
   }
   
-  // carouselSlide.getElementsByClassName.transform = 'translate'
   return (
-    <div className="App">
-      
+    <div className="App"> 
       <div className='carousel-container'>
         <div className="carousel-slide" style={styles}>
         <img id="last-clone"alt="" src ={beach}></img>
