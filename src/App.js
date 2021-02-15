@@ -10,12 +10,22 @@ function App() {
   const [counter, setCounter] = useState(1);
   const [transformAmount, setTransformAmount] = useState(-1200);
   useEffect(()=> {
-    setTransformAmount(state => state * counter);
+    console.log('triggered')
+    setTransformAmount(state => -1200 * counter);
   }, [counter]);
   const styles = {
-    transform: `translateX(${transformAmount}px)`
+    transform: `translateX(${transformAmount}px)`,
+    transistion: 'transform 0.4s ease-in-out'
   }
   
+  function prevSlide() {
+    setCounter(state => state - 1);
+  }
+  function nextSlide() {
+    setCounter(state => state + 1);
+  } 
+  console.log(counter)
+  console.log(transformAmount)
   return (
     <div className="App"> 
       <div className='carousel-container'>
@@ -30,8 +40,8 @@ function App() {
         </div>
       </div>
       <div className="button-container">
-      <button>Prev</button>
-      <button>Next</button>
+      <button onClick={() => prevSlide()}>Prev</button>
+      <button onClick={() => nextSlide()}>Next</button>
       </div>
     </div>
   );
