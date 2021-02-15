@@ -19,3 +19,7 @@
   height: 800px;
   /* overflow: hidden; */
 }
+.carousel-slide img {
+  transition: ease-in-out;
+  transition-duration: 0.4s;
+}
