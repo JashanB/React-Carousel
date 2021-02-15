@@ -21,6 +21,7 @@ function App() {
   // carouselSlide.getElementsByClassName.transform = 'translate'
   return (
     <div className="App">
+      
       <div className='carousel-container'>
         <div className="carousel-slide" style={styles}>
         <img id="last-clone"alt="" src ={beach}></img>
