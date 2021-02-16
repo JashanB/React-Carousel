@@ -12,6 +12,8 @@
   width: 1200px;
   margin: auto;
   border: 5px solid black;
+    overflow: hidden;
+
 }
 .carousel-slide {
   display: flex;

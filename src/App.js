@@ -9,25 +9,38 @@ import { useState, useEffect } from 'react';
 function App() {
   const [counter, setCounter] = useState(1);
   const [transformAmount, setTransformAmount] = useState(-1200);
+  const [transition, setTransition] = useState("transform 0.4s ease-in-out");
+  const indexArray = ["last-clone", "", "", "", "", "", "first-clone"];
   useEffect(() => {
-    counter <= 0 ? setTransformAmount(state => -1200 * counter) : setTransformAmount(state => -1200 * counter);
-    setTransformAmount(state => -1200 * counter)
+    setTransformAmount(state => -1200 * counter);
   }, [counter]);
   const styles = {
     transform: `translateX(${transformAmount}px)`,
-    transition: 'transform 0.4s ease-in-out'
+    transition: transition
   }
 
   function prevSlide() {
+    if (counter <= 0) return;
     setCounter(state => state - 1);
+    setTransition(state => "transform 0.4s ease-in-out");
   }
   function nextSlide() {
+    if (counter >= indexArray.length - 1) return;
     setCounter(state => state + 1);
+    setTransition(state => "transform 0.4s ease-in-out");
   }
   function handleTransitionEnd (event) {
-    console.log('fired')
+    if (indexArray[counter] === 'last-clone' ) {
+      setTransition(state => 'none');
+      setCounter(state => indexArray.length - 2);
+    } 
+    if (indexArray[counter] === 'first-clone' ) {
+      setTransition(state => 'none');
+      setCounter(state => indexArray.length - counter);
+    } 
   }
-
+  console.log(counter)
+  console.log(transformAmount)
   return (
     <div className="App">
       <div className='carousel-container'>
